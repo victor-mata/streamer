@@ -38,18 +38,22 @@ target_link_libraries(ecto_streamer_serv
   boost_thread boost_system boost_regex
   )
 
+set(CMAKE_CXX_FLAGS "-Wno-narrowing")
 set_target_properties(ecto_streamer_serv PROPERTIES
     COMPILE_FLAGS "-fpic -Wall -Werror"
     )
 
-add_executable(httpserv  main.cpp)
-target_link_libraries(httpserv
-  ecto_streamer_serv
-  )
+#add_executable(httpserv  main.cpp)
+#target_link_libraries(httpserv
+  #ecto_streamer_serv
+  #)
 
-set_target_properties(httpserv PROPERTIES
-    COMPILE_FLAGS "-fpic -Wall -Werror"
-    )
+#set_target_properties(httpserv PROPERTIES
+    #COMPILE_FLAGS "-fpic -Wall -Werror"
+    #)
+
+(GLOB HEADERS ${PROJECT_SOURCE_DIR}/*.hpp)
+install(FILES ${HEADERS} DESTINATION include/streamer)
 
 install(TARGETS ecto_streamer_serv
   DESTINATION lib

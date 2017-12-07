@@ -52,7 +52,7 @@ set_target_properties(ecto_streamer_serv PROPERTIES
     #COMPILE_FLAGS "-fpic -Wall -Werror"
     #)
 
-(GLOB HEADERS ${PROJECT_SOURCE_DIR}/*.hpp)
+file(GLOB HEADERS ${PROJECT_SOURCE_DIR}/*.hpp)
 install(FILES ${HEADERS} DESTINATION include/streamer)
 
 install(TARGETS ecto_streamer_serv
